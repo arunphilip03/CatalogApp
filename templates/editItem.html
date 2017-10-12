@@ -1,0 +1,43 @@
+{% extends "main.html" %}
+{% block content %}
+
+<form action="#" method="POST">
+	
+	<div class="item-container">
+		<h3>Edit Item</h3>
+		<div class="row">
+			<label class="row-label" for="itemName">Name:</label>
+			<input type="text" name="itemName" placeholder="Name of item" maxlength="80" value="{{item.name}}">
+		</div>
+		<div class="row">
+			<label class="row-label" for="description">Description:</label>
+			<textarea name="description" placeholder="Description of item" maxlength="2000" rows="6" cols="50">{{item.description}}</textarea>
+		</div>
+		<div class="row">
+			<label class="row-label" for="category">Category:</label>
+			<select name="category">
+				{% for category in categories %}
+				{% if category_name == category.name %}
+				<option value="{{category.id}}" selected="true">{{category.name}}</option>
+				{% else %}
+				<option value="{{category.id}}">{{category.name}}</option>
+				{% endif %}
+				{% endfor %}
+			</select>
+		</div>
+
+		<div class="action-buttons">
+			<button type="submit" id="submit" class="button">Submit</button>
+			<button type="reset" id="reset" class="button">Reset</button>
+			<a href = "{{url_for('showCatalog')}}" class="button">
+				Cancel
+			</a>
+		</div>
+
+	</div>
+
+	
+
+</form>
+
+{% endblock %}

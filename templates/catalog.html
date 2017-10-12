@@ -1,0 +1,22 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "navigator.html" %}
+
+<section class="content">
+	<a href="{{url_for('addItem')}}" class="button">Add Item</a>
+	<h2>Latest Items</h2>
+	{% for item in latestItems %}
+	<ul>
+		<li>
+			<a href="{{url_for('showItem', category_name=item.category.name, item_name=item.name)}}" class="app-link">
+				<div class="row">
+					{{item.name}} ({{item.category.name}})
+				</div>
+			</a>
+
+		</li>
+	</ul>
+	{% endfor %}
+
+</section>
+{% endblock %}

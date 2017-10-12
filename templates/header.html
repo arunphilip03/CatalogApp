@@ -1,0 +1,32 @@
+<header>
+	<div class="app-name">
+		<a class="app-link" href="{{url_for('showCatalog')}}">
+			Catalog Application
+		</a>
+
+	</div>
+	
+	<div class="user-info">
+		{%if 'username' not in session %}
+		<a href="{{url_for('showLogin')}}" class="button">Login </a>
+		{% else %}
+		Welcome {{session['username']}}
+		<img src="{{session['picture']}}" class="profilePhoto" height="30" width="30" alt="profile picture"/>
+		<a href="{{url_for('disconnect')}}" class="button">Logout </a>
+		{% endif %}
+	</div>
+	
+</header>
+
+<div class="flash">
+	{% with messages = get_flashed_messages() %}
+	{% if messages %}
+
+	<ul>
+		{% for message in messages %}
+		<li> {{ message }} </li>
+		{% endfor %}
+	</ul>
+	{% endif %}
+	{% endwith %}
+</div>

@@ -1,0 +1,19 @@
+{% extends "main.html" %}
+{% block content %}
+
+<section>
+	<div class="item-container">
+		
+		<div class="item-name">
+			<span class="category-name">
+				<a href="{{url_for('showAllItems', category_name=category.name)}}" class="app-link">
+					{{category.name}}
+				</a>
+			/</span> {{item.name}}
+		</div>
+		<div class="item-desc">
+			{{item.description}}
+		</div>
+	</div>
+</section>
+{% endblock %}

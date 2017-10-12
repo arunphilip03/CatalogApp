@@ -1,0 +1,25 @@
+{% extends "main.html" %}
+{% block content %}
+
+<section>
+	<div class="item-container">
+		
+		<div class="item-name">
+			<span class="category-name">
+				<a href="{{url_for('showAllItems', category_name=category.name)}}" class="app-link">
+					{{category.name}}
+				</a>
+			/</span> {{item.name}}
+		</div>
+		<div class="item-desc">
+			{{item.description}}
+		</div>
+
+		<div class="action-buttons">
+			<a href="{{url_for('editItem', category_name=category.name, item_name=item.name)}}" class="button">Edit</a>
+			<a href="{{url_for('deleteItem', category_name=category.name, item_name=item.name)}}" class="button">Delete</a>
+		</div>
+	</div>
+	
+</section>
+{% endblock %}

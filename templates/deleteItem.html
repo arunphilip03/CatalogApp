@@ -1,0 +1,20 @@
+{% extends "main.html" %}
+{% block content %}
+
+<form action="#", method="POST">
+
+	<div class="item-container">
+		<h3>Confirm Delete</h3>
+		<div class="message">Are you sure you want to delete item <span class="message-hightlight">{{item.name}} ({{ category_name}})</span>?</div>
+		<div class="action-buttons">	
+			<button  type="submit" id="submit" class="button">Delete</button>
+			<a href = "{{url_for('showAllItems', category_name=category_name)}}" class="button">
+				Cancel
+			</a>
+		</div>
+	</div>
+
+
+</form>
+
+{% endblock %}

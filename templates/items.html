@@ -1,0 +1,18 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "navigator.html" %}
+<section class="content">
+	<h2>{{category.name}} Items ({{count}} Items)</h2>
+
+	<ul>
+		{% for item in items %}
+		<li>
+			<a href="{{url_for('showItem', category_name=category.name, item_name=item.name)}}" class="app-link">
+				<div class="row">{{item.name}}</div>
+			</a>
+		</li>
+		{% endfor %}
+	</ul>
+	<a href="{{url_for('addCategoryItem', category_name=category.name)}}" class="button">Add Item</a>
+</section>
+	{% endblock %}

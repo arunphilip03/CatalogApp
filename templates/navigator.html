@@ -1,0 +1,19 @@
+<nav>
+	<h2>Categories</h2>
+	<ul class="nav-ul">
+		{% for cat in categories %}
+		
+		<a href="{{url_for('showAllItems', category_name=cat.name)}}" class="app-link">
+			{% if category and category.name == cat.name %}
+			<li class="nav-list selected-row">
+				{% else %}
+				<li class="nav-list">
+					{% endif %}
+
+					<div>{{cat.name}}</div>
+
+				</li>
+			</a>
+			{% endfor %}
+		</ul>
+	</nav>
